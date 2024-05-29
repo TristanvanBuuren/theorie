@@ -1,3 +1,5 @@
+/* GENERAL */
+
 .flex {
     display: flex;
     flex-direction: row;
@@ -5,16 +7,10 @@
     align-content: flex-start;
 }
 
-.category {
-    width: 100px;
-    height: 100px;
-
-    display: flex;
-    justify-content: center;
-
-    font-size: 30px;
-    border: 1px solid black;
-    border-radius: 100%;
+#logo {
+    width: 120px;
+    height: 120px;
+    margin-right: 100px;
 }
 
 #title {
@@ -23,10 +19,35 @@
     font-size: 100px;
 }
 
-#logo {
-    width: 120px;
-    height: 120px;
-    margin-right: 100px;
+.cat-title {
+    width: 100%;
+
+    margin-left: 5%;
+    font-size: 15px;
+}
+
+/* START */
+
+.content {
+    margin-left: 50px;
+    display: inline-flex;
+    gap: 50px;
+
+    flex-wrap: wrap;
+}
+
+.category {
+    width: 140px;
+    height: 150px;
+
+    display: flex;
+    justify-content: center;
+
+    font-size: 40px;
+    border: 1px solid black;
+    /* border-radius: 100%; */
+
+    flex-wrap: wrap;
 }
 
 #choose {
@@ -37,6 +58,24 @@
     font-size: 70px;
 }
 
-.cat-title {
-    font-size: 20px;
+/* QUESTIONS */
+
+/* STYLING */
+
+.td-none {
+    text-decoration: none;
+    color: black;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
