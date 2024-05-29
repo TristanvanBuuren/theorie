@@ -17,8 +17,8 @@ if ($con -> connect_errno) {
     exit();
 }
 
-define("BASEURL","http://localhost/module2/theorie/");
 // define("BASEURL","http://localhost/module2/theorie/");
+define("BASEURL","http://localhost/theorie/");
 
 function prettyDump ( $var ) {
     echo "<pre>";
