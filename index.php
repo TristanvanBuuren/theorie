@@ -8,9 +8,13 @@ include ("core/header.php");
         <img class="flex" id="logo" src="https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f698.svg"
             alt="LOGO" />
     </div>
-    <h2 id="choose">Kies een categorie</h2>
+    <div id="choose">Kies een categorie</div>
     <div id="content">
-        <div class="category" id="cat-b">B</div>
+        <div class="category" id="category-b">
+            <div id="cat-b">B</div>
+            <div class="cat-title">Rijbevoegdheid en rijbewijzen</div>
+        </div>
+
         <div class="category" id="cat-t">T</div>
     </div>
 

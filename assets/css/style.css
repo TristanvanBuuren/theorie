@@ -1,8 +1,20 @@
 .flex {
     display: flex;
     flex-direction: row;
-    justify-content: space-between; 
+    justify-content: space-between;
     align-content: flex-start;
+}
+
+.category {
+    width: 100px;
+    height: 100px;
+
+    display: flex;
+    justify-content: center;
+
+    font-size: 30px;
+    border: 1px solid black;
+    border-radius: 100%;
 }
 
 #title {
@@ -21,4 +33,10 @@
     display: flex;
     width: 100%;
     justify-content: center;
+
+    font-size: 70px;
+}
+
+.cat-title {
+    font-size: 20px;
 }
