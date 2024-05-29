@@ -166,7 +166,7 @@ $array = [
             "type" => "1",
             "image" => "002.png",
             "question" => "Vanaf welke leeftijd mag je het theorie-examen afleggen?",
-            "feedback" => " Je mag vanaf 16 jaar het theorie-examen doen voor het rijbewijs. ",
+            "feedback" => "Je mag vanaf 16 jaar het theorie-examen doen voor het rijbewijs.",
             "options" => [
                 "16 jaar",
                 "15 jaar",
@@ -192,7 +192,7 @@ $array = [
             "type" => "2",
             "image" => "186.png",
             "question" => "Een gehandicapt persoon rijdt in een brommobiel. Mag deze nu op het trottoir parkeren?\r\n",
-            "feedback" => "Een brommobiel moet altijd de regels voor een brommobiel blijven volgen, welke de regels van de auto volgt, ongeacht wie er zich in de brommobiel bevindt. Ook wanneer de bestuurder gehandicapt is, dan wordt dit voertuig niet automatisch een gehandicaptenvoertuig. ",
+            "feedback" => "Een brommobiel moet altijd de regels voor een brommobiel blijven volgen, welke de regels van de auto volgt, ongeacht wie er zich in de brommobiel bevindt. Ook wanneer de bestuurder gehandicapt is, dan wordt dit voertuig niet automatisch een gehandicaptenvoertuig.",
             "options" => [
                 "NEE",
                 "JA",
@@ -322,9 +322,9 @@ $array = [
             "type" => "1",
             "image" => "2d_009.png",
             "question" => "Hoe lang is de ‘groene’ verzekeringskaart geldig?",
-            "feedback" => "Een verzekering sluit je af voor 1 jaar, de groene kaart is daarom ook 1 jaar geldig. ",
+            "feedback" => "Een verzekering sluit je af voor 1 jaar, de groene kaart is daarom ook 1 jaar geldig.",
             "options" => [
-                " 1 jaar",
+                "1 jaar",
                 "2 jaar",
                 "5 jaar"
             ]
@@ -347,7 +347,7 @@ $array = [
             "category" => "B",
             "type" => "1",
             "image" => "7.JPG",
-            "question" => "Hoeveel is de toegestane maximum massa van een auto en aanhanger die je met het rijbewijs B mag besturen? ",
+            "question" => "Hoeveel is de toegestane maximum massa van een auto en aanhanger die je met het rijbewijs B mag besturen?",
             "feedback" => "Met het rijbewijs B is het toegestaan om een aanhanger te vervoeren die zwaarder is dan 750 kg, maar daarbij mag het leeggewicht en het laadvermogen van de aanhanger en de auto samen niet meer dan 3500 kg zijn. De aanhangwagen mag tevens niet zwaarder zijn dan het trekkende motorvoertuig.",
             "options" => [
                 "3500 kg",
@@ -567,3 +567,4 @@ $array = [
     ]
 ]
     ?>
+<!-- ('','','','','','','','',''),('','','','','','','','',''), -->
