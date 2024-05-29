@@ -17,8 +17,22 @@
     <title>Theorie</title>
 </head>
 <body>
-    <button class="btn btn-primary" id="login">login</button>
-    <button class="btn btn-primary" id="acount">acount</button>
+<nav>
+        <ul>
+            <li><a href="index.php">Home</a></li>
+            <?php if (isset($_SESSION['ingelogd']) && $_SESSION['ingelogd'] === true): ?>
+                <li><a href="login/account.php">Account</a></li>
+                <li><a href="login/uitloggen.php">Uitloggen</a></li>
+                
+                <?php elseif (isset($_SESSION['admin_ingelogd']) && $_SESSION['admin_ingelogd'] === true): ?>
+                <li><a href="login/admin_account.php">Admin Account</a></li>
+                <li><a href="login/uitloggen.php">Uitloggen</a></li>
+
+            <?php else: ?>
+                <li><a href="login/login.php">Inloggen</a></li>
+            <?php endif; ?>
+        </ul>
+    </nav>
 <div class="flex" id="header">
         <h1 class="flex" id="title">CBR oefenexamen</h1>
         <img class="flex" id="logo" src="https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f698.svg"

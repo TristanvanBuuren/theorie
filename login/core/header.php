@@ -2,6 +2,7 @@
 include($_SERVER['DOCUMENT_ROOT'] . '/Module2/theorie/core/db_connect.php');
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,3 +18,21 @@ include($_SERVER['DOCUMENT_ROOT'] . '/Module2/theorie/core/db_connect.php');
     <title>Theorie</title>
 </head>
 <body>
+<nav>
+        <ul>
+            <li><a href="../index.php">Home</a></li>
+            <?php if (isset($_SESSION['ingelogd']) && $_SESSION['ingelogd'] === true): ?>
+                <li><a href="account.php">Account</a></li>
+                <li><a href="uitloggen.php">Uitloggen</a></li>
+
+                <?php elseif (isset($_SESSION['admin_ingelogd']) && $_SESSION['admin_ingelogd'] === true): ?>
+                <li><a href="admin_account.php">Admin Account</a></li>
+                <li><a href="uitloggen.php">Uitloggen</a></li>
+                
+            <?php else: ?>
+               
+                <li><a href="login.php">Inloggen</a></li>
+            <?php endif; ?>
+        </ul>
+    </nav>
+    

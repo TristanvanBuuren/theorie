@@ -71,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $row = $result->fetch_assoc();
         // Verifieer het wachtwoord
         if ($admin_password == $row["admin_password"]) {
-            // Gebruiker is geldig, stuur door naar admin_account.php
+            $_SESSION['admin_ingelogd'] = true;
             $redirectUrl = "admin_account.php";
             header("Location: " . $redirectUrl);
             exit();
