@@ -11,7 +11,7 @@ include ("core/header.php");
         include ("core/view.php");
         foreach ($array["category"] as $category) {
             ?>
-            <a class="category td-none" id="category-<?= $category["category"];?>" href="questions.php?$cat=<?= $category["category"] ?>">
+            <a class="category td-none" id="category-<?= $category["category"];?>" href="questions.php?cat=<?= $category["category"] ?>">
                 <div><?= $category["category"];?></div>
                 <div class="cat-title"><?= $category["chapter"];?></div>
             </a>

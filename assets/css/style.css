@@ -46,6 +46,8 @@
     flex-wrap: wrap;
     word-wrap: break-word;
     text-align: center;
+
+    color: red;
 }
 
 #choose {
@@ -54,6 +56,15 @@
     justify-content: center;
     font-size: 5.5vw;
 }
+
+#category-B {
+    color: black;
+}
+#category-T {
+    color: black;
+}
+
+#category
 
 /* QUESTIONS */
 
