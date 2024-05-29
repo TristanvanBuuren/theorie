@@ -1,8 +1,64 @@
+<?php
+include('../core/header.php');
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+// Gebruikersnaam validatie
+$usernameErr = "";
+$username = isset($_POST["username"]) ? $_POST["username"] : '';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (empty($_POST["username"])) {
+        $usernameErr = "Gebruikersnaam is verplicht.";
+    } elseif (!preg_match("/^[a-zA-Z0-9_]+$/", $_POST["username"])) {
+        $usernameErr = "Ongeldige gebruikersnaam. Alleen letters, cijfers en underscores zijn toegestaan.";
+    } elseif (strlen($_POST["username"]) < 4 || strlen($_POST["username"]) > 20) {
+        $usernameErr = "Gebruikersnaam moet tussen 4 en 20 tekens lang zijn.";
+    }
+}
+
+// Wachtwoord validatie
+$passwordErr = "";
+$password = isset($_POST["password"]) ? $_POST["password"] : '';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (empty($_POST["password"])) {
+        $passwordErr = "Wachtwoord is verplicht.";
+    } 
+}
+
+// Controleer of er fouten zijn
+if (empty($usernameErr) && empty($passwordErr)) {
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $username = $_POST["username"];
+        $password = $_POST["password"];
+
+        // Hash het wachtwoord voor opslag in de database
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+        // Voeg de nieuwe gebruiker toe aan de database
+        $stmt = $con->prepare("INSERT INTO login (username, password) VALUES (?, ?)");
+        $stmt->bind_param("ss", $username, $hashed_password);
+
+        if ($stmt->execute()) {
+            echo "Nieuwe gebruiker is succesvol geregistreerd.";
+            $_SESSION['ingelogd'] = true;
+            $_SESSION['username'] = $username; // Sla de gebruikersnaam op in de sessie
+            $redirectUrl = BASEURL . "index.php";
+            header("Location: " . $redirectUrl);
+            exit();
+        } else {
+            echo "Error: " . $stmt->error;
+        }
+
+        $stmt->close();
+        // Wis de ingevoerde waarden na een succesvolle registratie
+        $username = "";
+        $password = "";
+    }
+} else {
+    // Toon de foutmeldingen
+    echo $usernameErr . "<br>" . $passwordErr;
+}
+?>
 
 <body>
     <div id="login">
@@ -15,14 +71,14 @@
                             <h3 class="text-center text-info">Register</h3>
                             <div class="form-group">
                                 <label for="username" class="text-info">Username:</label><br>
-                                <input type="text" name="username" id="username" class="form-control">
+                                <input type="text" name="username" id="username" class="form-control" value="<?php echo $username;?>">
                             </div>
                             <div class="form-group">
                                 <label for="password" class="text-info">Password:</label><br>
-                                <input type="text" name="password" id="password" class="form-control">
+                                <input type="text" name="password" id="password" class="form-control" value="<?php echo $password;?>">
                             </div>
                             <div class="form-group">
-                                <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
+                                <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox" <?php echo isset($_POST['remember-me']) ? 'checked' : ''; ?>></span></label><br>
                                 <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
                             </div>
                             <div id="register-link" class="text-right">
@@ -35,32 +91,7 @@
         </div>
     </div>
 </body>
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST["username"];
-    $password = $_POST["password"];
 
-    // Hash het wachtwoord voor opslag in de database
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
-    // Voeg de nieuwe gebruiker toe aan de database
-    $stmt = $con->prepare("INSERT INTO login (username, password) VALUES (?, ?)");
-    $stmt->bind_param("ss", $username, $hashed_password);
-
-    if ($stmt->execute()) {
-        echo "Nieuwe gebruiker is succesvol geregistreerd.";
-        $_SESSION['ingelogd'] = true;
-        $_SESSION['username'] = $username; // Sla de gebruikersnaam op in de sessie
-        $redirectUrl = BASEURL . "admin/blogs/";
-        header("Location: " . $redirectUrl);
-        exit();
-    } else {
-        echo "Error: " . $stmt->error;
-    }
-
-    $stmt->close();
-}
-?>
 <style>
     body {
   margin: 0;
@@ -81,4 +112,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 #login .container #login-row #login-column #login-box #login-form #register-link {
   margin-top: -85px;
 }
-    </style>
+</style>

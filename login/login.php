@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Stel de sessievariabele in om aan te geven dat de gebruiker is ingelogd
         $_SESSION['ingelogd'] = true;
         // Redirect naar de gewenste pagina
-        header("Location: ./index.php");
+        header("Location: index.php");
         exit();
     }
 }
@@ -71,7 +71,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($password, $row["password"])) {
             // Gebruiker is geldig, start de sessie en stuur door naar blogs
             $_SESSION['ingelogd'] = true;
-            header("Location: ./index.php");
+            $redirectUrl = BASEURL . "index.php";
+            header("Location: " . $redirectUrl);
             $_SESSION['username'] = $username;
             exit();
         } else {
