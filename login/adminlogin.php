@@ -12,6 +12,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: index.php");
         exit();
     }
+    else{
+        $_SESSION['ingelogd'] = false;
+    }
 }
 ?>
 <?php
@@ -24,13 +27,13 @@ include('core/header.php');
 
 <body>
     <div id="login">
-        <h3 class="text-center text-white pt-5">Login Page</h3>
+        <h3 class="text-center text-white pt-5">ADMIN Login Page</h3>
         <div class="container">
             <div id="login-row" class="row justify-content-center align-items-center">
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" class="col-md-12">
                         <form id="login-form" class="form" action="" method="post">
-                            <h3 class="text-center text-info">Login</h3>
+                            <h3 class="text-center text-info">ADMIN Login</h3>
                             <div class="form-group">
                                 <label for="username" class="text-info">Username:</label><br>
                                 <input type="text" name="username" id="username" class="form-control">
@@ -44,11 +47,9 @@ include('core/header.php');
                                 <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
                             </div>
                             <div id="register-link" class="text-right">
-                                <a href="./register.php" class="text-info">Register here</a>
+                                <a href="./login.php" class="text-info">Login here</a>
                             </div>
-                            <div id="admin-link" class="text-right">
-                                <a href="./adminlogin.php" class="text-info">Login as Admin</a>
-                            </div>
+                     
                         </form>
                     </div>
                 </div>
@@ -57,35 +58,29 @@ include('core/header.php');
     </div>
 </body>
 <?php
-// Verifieer de gebruikersnaam en het wachtwoord
+// Controleer of het formulier is ingediend
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST["username"];
-    $password = $_POST["password"];
+    $admin_username = $_POST["username"];
+    $admin_password = $_POST["password"];
 
     // Query om de gebruiker op te halen uit de database
-    $stmt = $con->prepare("SELECT * FROM login WHERE username = ?");
-    $stmt->bind_param("s", $username);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    $sql = "SELECT * FROM admin_login WHERE username = '$admin_username'";
+    $result = $con->query($sql);
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         // Verifieer het wachtwoord
-        if (password_verify($password, $row["password"])) {
-            // Gebruiker is geldig, start de sessie en stuur door naar blogs
-            $_SESSION['ingelogd'] = true;
-            $redirectUrl = BASEURL . "index.php";
+        if ($admin_password == $row["admin_password"]) {
+            // Gebruiker is geldig, stuur door naar admin_account.php
+            $redirectUrl = "admin_account.php";
             header("Location: " . $redirectUrl);
-            $_SESSION['username'] = $username;
             exit();
         } else {
-            echo "Ongeldige gebruikersnaam of wachtwoord.";
+            $error_message = "Ongeldige gebruikersnaam of admin wachtwoord.";
         }
     } else {
-        echo "Ongeldige gebruikersnaam of wachtwoord.";
+        $error_message = "Ongeldige gebruikersnaam of admin wachtwoord.";
     }
-
-    $stmt->close();
 }
 ?>
 <style>
