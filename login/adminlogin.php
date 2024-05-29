@@ -72,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Verifieer het wachtwoord
         if ($admin_password == $row["admin_password"]) {
             $_SESSION['admin_ingelogd'] = true;
-            $redirectUrl = "admin_account.php";
+            $redirectUrl = "admin/admin_account.php";
             header("Location: " . $redirectUrl);
             exit();
         } else {

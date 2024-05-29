@@ -26,8 +26,8 @@ include($_SERVER['DOCUMENT_ROOT'] . '/Module2/theorie/core/db_connect.php');
                 <li><a href="uitloggen.php">Uitloggen</a></li>
 
                 <?php elseif (isset($_SESSION['admin_ingelogd']) && $_SESSION['admin_ingelogd'] === true): ?>
-                    <li><a href="../login/admin/admin_account.php">Admin Account</a></li>
-                <li><a href="uitloggen.php">Uitloggen</a></li>
+                    <li><a href="../admin/admin_account.php">Admin Account</a></li>
+                    <li><a href="../../login/uitloggen.php">Uitloggen</a></li>
                 
             <?php else: ?>
                
