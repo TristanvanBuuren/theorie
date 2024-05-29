@@ -1,58 +1,58 @@
 /* GENERAL */
 
 .flex {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-content: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: flex-start;
 }
 
 #logo {
-    width: 10%;
-    height: auto;
-    margin-right: 8%;
+  width: 10%;
+  height: auto;
+  margin-right: 8%;
 }
 
 #title {
-    margin-left: 12%;
-    font-size: 8vw;
+  margin-left: 12%;
+  font-size: 8vw;
 }
 
 .cat-title {
-    width: 100%;
-    margin-left: 5%;
-    font-size: 1.2vw;
+  width: 100%;
+  margin-left: 5%;
+  font-size: 1.2vw;
 }
 
 /* START */
 
 .content {
-    margin-left: 4%;
-    display: flex;
-    flex-wrap: wrap;
+  margin-left: 4%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .category {
-    width: 18%;
-    padding: 10px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 3vw;
-    border: 1px solid black;
-    margin: 2%;
-    flex-wrap: wrap;
-    word-wrap: break-word;
-    text-align: center;
+  width: 18%;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 3vw;
+  border: 1px solid black;
+  margin: 2%;
+  flex-wrap: wrap;
+  word-wrap: break-word;
+  text-align: center;
 }
 
 #choose {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    font-size: 5.5vw;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  font-size: 5.5vw;
 }
 
 /* QUESTIONS */
@@ -60,115 +60,115 @@
 /* STYLING */
 
 .td-none {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
 
 .td-none:hover {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
 
 /* RESPONSIVENESS */
 
 @media (max-width: 1200px) {
-    #logo {
-        width: 8%;
-        margin-right: 4%;
-    }
+  #logo {
+    width: 8%;
+    margin-right: 4%;
+  }
 
-    #title {
-        margin-left: 8%;
-        font-size: 7vw;
-    }
+  #title {
+    margin-left: 8%;
+    font-size: 7vw;
+  }
 
-    .category {
-        width: 20%;
-        font-size: 2.5vw;
-        margin: 1.5%;
-    }
+  .category {
+    width: 20%;
+    font-size: 2.5vw;
+    margin: 1.5%;
+  }
 
-    #choose {
-        font-size: 5vw;
-    }
+  #choose {
+    font-size: 5vw;
+  }
 }
 
 @media (max-width: 992px) {
-    #logo {
-        width: 6%;
-        margin-right: 3%;
-    }
+  #logo {
+    width: 6%;
+    margin-right: 3%;
+  }
 
-    #title {
-        margin-left: 6%;
-        font-size: 6vw;
-    }
+  #title {
+    margin-left: 6%;
+    font-size: 6vw;
+  }
 
-    .category {
-        width: 22%;
-        font-size: 2.2vw;
-        margin: 1.5%;
-    }
+  .category {
+    width: 22%;
+    font-size: 2.2vw;
+    margin: 1.5%;
+  }
 
-    #choose {
-        font-size: 4.5vw;
-    }
+  #choose {
+    font-size: 4.5vw;
+  }
 
-    .content {
-        margin-left: 3%;
-    }
+  .content {
+    margin-left: 3%;
+  }
 }
 
 @media (max-width: 768px) {
-    .flex {
-        flex-direction: column;
-        align-items: center;
-    }
+  .flex {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    #logo {
-        margin-right: 0;
-        margin-bottom: 5%;
-    }
+  #logo {
+    margin-right: 0;
+    margin-bottom: 5%;
+  }
 
-    #title {
-        margin-left: 0;
-        font-size: 5.5vw;
-        text-align: center;
-    }
+  #title {
+    margin-left: 0;
+    font-size: 5.5vw;
+    text-align: center;
+  }
 
-    .cat-title {
-        margin-left: 0;
-        text-align: center;
-    }
+  .cat-title {
+    margin-left: 0;
+    text-align: center;
+  }
 
-    .category {
-        width: 26%;
-        font-size: 2vw;
-        margin: 1.5%;
-    }
+  .category {
+    width: 26%;
+    font-size: 2vw;
+    margin: 1.5%;
+  }
 
-    #choose {
-        font-size: 4vw;
-        text-align: center;
-    }
+  #choose {
+    font-size: 4vw;
+    text-align: center;
+  }
 
-    .content {
-        margin-left: 0;
-    }
+  .content {
+    margin-left: 0;
+  }
 }
 
 @media (max-width: 576px) {
-    #title {
-        font-size: 5vw;
-    }
+  #title {
+    font-size: 5vw;
+  }
 
-    .category {
-        width: 30%;
-        font-size: 1.8vw;
-        margin: 1.5%;
-    }
+  .category {
+    width: 30%;
+    font-size: 1.8vw;
+    margin: 1.5%;
+  }
 
-    #choose {
-        font-size: 3.5vw;
-    }
+  #choose {
+    font-size: 3.5vw;
+  }
 }

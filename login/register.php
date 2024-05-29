@@ -1,5 +1,6 @@
 <?php
-include('../core/header.php');
+include('core/header.php');
+
 
 // Gebruikersnaam validatie
 $usernameErr = "";
@@ -113,3 +114,7 @@ if (empty($usernameErr) && empty($passwordErr)) {
   margin-top: -85px;
 }
 </style>
+
+<?php
+include('core/footer.php');
+?>
