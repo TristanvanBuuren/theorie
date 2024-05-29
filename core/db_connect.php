@@ -8,10 +8,12 @@ $dbname = "theorie";
 
 $con = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 
+
 if ($con -> connect_errno) {
     echo "Failed to connect to MySQL: " . $con -> connect_error;
     exit();
- }
+}
+
 
 define("BASEURL","http://localhost/module2/theorie/");
 // define("BASEURL","http://localhost/theorie/");
