@@ -1,3 +1,5 @@
+/* GENERAL */
+
 .flex {
     display: flex;
     flex-direction: row;
@@ -5,17 +7,38 @@
     align-content: flex-start;
 }
 
+#logo {
+    width: 120px;
+    height: 120px;
+    margin-right: 100px;
+}
+
+#title {
+    margin-left: 150px;
+
+    font-size: 100px;
+}
+
+.cat-title {
+    width: 100%;
+
+    margin-left: 5%;
+    font-size: 15px;
+}
+
+/* START */
+
 .content {
     margin-left: 50px;
     display: inline-flex;
     gap: 50px;
+
+    flex-wrap: wrap;
 }
 
 .category {
-
-
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 150px;
 
     display: flex;
     justify-content: center;
@@ -27,18 +50,6 @@
     flex-wrap: wrap;
 }
 
-#title {
-    margin-left: 150px;
-
-    font-size: 100px;
-}
-
-#logo {
-    width: 120px;
-    height: 120px;
-    margin-right: 100px;
-}
-
 #choose {
     display: flex;
     width: 100%;
@@ -47,9 +58,24 @@
     font-size: 70px;
 }
 
-.cat-title {
-    width: 100%;
+/* QUESTIONS */
 
-    margin-left: 5%;
-    font-size: 15px;
+/* STYLING */
+
+.td-none {
+    text-decoration: none;
+    color: black;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
