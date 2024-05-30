@@ -191,7 +191,7 @@
   background-color: rgb(3, 99, 150); /* Kleur van de balk */
 }
 
-.blauwe-balkl {
+.blauwe-balkf {
   position: absolute;
   top: 92%;
   left: 0;
@@ -207,9 +207,9 @@
 
   font-size: 200%;
   margin-left: 50%;
-  width: 80%;
+  width: 90%;
   margin-bottom: 5%; /* Ruimte onder de balk */
-  margin-top: 20%; /* Ruimte onder de balk */
+  margin-top: 15%; /* Ruimte onder de balk */
 }
 .antwoord-box {
   border: 1px solid #ced4da; /* Rand rond de antwoordbox */
@@ -237,4 +237,34 @@
   height: 8%;
   width: 16%;
   font-size: 150%;
+}
+.terug-knop {
+  background-color: rgb(70, 140, 180);
+  color: #fff;
+  border: 1px solid rgb(70, 140, 180);
+  padding: 10px 20px;
+
+  cursor: pointer;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  height: 8%;
+  width: 16%;
+  font-size: 150%;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  color: black;
+}
+
+.zeker-text {
+  text-align: center; /* Optional: center text inside the element */
+  font-size: 2rem; /* Adjust the font size as needed */
+  color:black
 }
