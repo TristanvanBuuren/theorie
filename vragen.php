@@ -72,6 +72,17 @@ if ($vragen_id === null) {
 }
 ?>
 <script>
+document.addEventListener("DOMContentLoaded", function() {
+    var img = document.getElementById('vraag-afbeelding');
+    img.onload = function() {
+        var height = img.naturalHeight;
+        if (height > 400) {  // Example height condition
+            img.classList.add('move-up');
+            console.log("added move-up class")
+        }
+    };
+});
+
     function selectAntwoord(element) {
         // Verwijder eerst 'selected' klasse van alle antwoordboxen
         var antwoordBoxen = document.querySelectorAll('.antwoord-box');
