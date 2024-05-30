@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 30, 2024 at 10:27 AM
+-- Generation Time: May 30, 2024 at 10:32 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,6 +20,99 @@ SET time_zone = "+00:00";
 --
 -- Database: `theorie`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin_login`
+--
+
+CREATE TABLE `admin_login` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `admin_password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admin_login`
+--
+
+INSERT INTO `admin_login` (`id`, `username`, `admin_password`) VALUES
+(1, 'Jesse', 'admin'),
+(2, 'Tristan', 'admin');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `category`
+--
+
+CREATE TABLE `category` (
+  `category_id` int(11) NOT NULL,
+  `category_letter` tinytext NOT NULL,
+  `chapter` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`category_id`, `category_letter`, `chapter`) VALUES
+(1, 'A', 'Algemene bepalingen verkeerswetgeving'),
+(2, 'B', 'Rijbevoegdheid en rijbewijzen'),
+(3, 'C', 'Inrichting, belading en slepen van voertuigen'),
+(4, 'D', 'Techniek, onderhoud en controle van voertuigen'),
+(5, 'E', 'Gebruik gordels en helmen; zitplaats voor passagiers'),
+(6, 'F', 'Milieubewust en energiezuinig rijden'),
+(7, 'G', 'Risico\\u2019s in verband met toestand bestuurder'),
+(8, 'H', 'Risico\\u2019s in verband met eigenschappen en toestand voertuig'),
+(9, 'I', 'Verkeerssituaties'),
+(10, 'J', 'Risico\\u2019s in verband met aanwezigheid en gedrag ander verkeer'),
+(11, 'K', 'Risico\'s in verband met weg-, zicht- en weersomstandigheden'),
+(12, 'L', 'Handelen bij ongevallen en pech onderweg'),
+(13, 'M', 'Voor laten gaan op kruispunten [voorrang]'),
+(14, 'N', 'Voor laten gaan bij het afslaan'),
+(15, 'O', 'Voor laten gaan van blinden, gehandicapten en voetgangers'),
+(16, 'P', 'Voor laten gaan van voorrangsvoertuigen, mil. colonnes en trams'),
+(17, 'Q', 'Uitvoeren van \\/ voor laten gaan bij bijzondere manoeuvres'),
+(18, 'R', 'Plaats op de weg en voorsorteren'),
+(19, 'S', 'Inhalen'),
+(20, 'T', 'Snelheid'),
+(21, 'U', 'Stilstaan en parkeren'),
+(22, 'V', 'Geven van tekens en signalen'),
+(23, 'W', 'Gebruik van lichten'),
+(24, 'X', 'Verkeersborden'),
+(25, 'Y', 'Verkeerslichten en aanwijzingen'),
+(26, 'Z', 'Verkeerstekens op het wegdek');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `login`
+--
+
+CREATE TABLE `login` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `login`
+--
+
+INSERT INTO `login` (`id`, `username`, `password`) VALUES
+(1, 'jesse', '$2y$10$YaVlEXHQZmbL/wslI5v.Oes8V8TZPaRye/6duvZLWX6c.MiwWnh26'),
+(2, 'awddaw', '$2y$10$gr3emuCkvKbuIV.4D4R8I.8aWHgM7O6yGFvguqrN85rIGWYStIfZm'),
+(3, 'awddaw', '$2y$10$yAjDRXvOcvlMGiXxqjsQjOlcuaysYebR8/o1qP1ea0koauhvPr9oO'),
+(4, 'jesse', '$2y$10$RvHTKgLbPmuF4s7liFDdXePlrYIvbrmfcecEupj8lpg7.TmQz6zCi'),
+(5, 'd', '$2y$10$/A2Ds82UmTZHhPxlRmfwR.mylaIZTwCFbHnHQg6JZddYSlAXsJ4KC'),
+(6, 'd', '$2y$10$kWUF9o9rERx4wAqgcsGU/u7rwepvpvqj8uUihVqsDCO6Y13MwmWEa'),
+(7, 'awdddd', '$2y$10$MRZtECroWPOMsBWKJ0d8buw/x9nMXLB/zZ55hqu2CrJzFdbnmFu0S'),
+(8, 'IKEBNJESSE', '$2y$10$JjiseSuOddxDu85cJLbvM.UkJS6qH6TRysEba2GgcXQc/I.bI8BLO'),
+(9, 'jesse', '$2y$10$ucqITRbHFpeRuOG4vBWirO0KajacbkcdcJFnCmPpMMpXpTAbQO7kq'),
+(10, 'jesse', '$2y$10$9E5RiVmhRZXSPSNoo4SwruKqF3IycrYkq7e924Do0YxMDK3VUPHGC'),
+(11, 'dddd', '$2y$10$JMzTtoTm8T0.G8V8Xlqd/OOl6BLKeNqp2P4KCBOx6FSrw59IUf2Qu');
 
 -- --------------------------------------------------------
 
@@ -70,6 +163,24 @@ INSERT INTO `vragen` (`vragen_id`, `vragen_category_id`, `type`, `image`, `quest
 --
 
 --
+-- Indexes for table `admin_login`
+--
+ALTER TABLE `admin_login`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`category_id`);
+
+--
+-- Indexes for table `login`
+--
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `vragen`
 --
 ALTER TABLE `vragen`
@@ -78,6 +189,24 @@ ALTER TABLE `vragen`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `admin_login`
+--
+ALTER TABLE `admin_login`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `category`
+--
+ALTER TABLE `category`
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
+-- AUTO_INCREMENT for table `login`
+--
+ALTER TABLE `login`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `vragen`
