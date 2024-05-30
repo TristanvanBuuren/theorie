@@ -17,19 +17,4 @@
     <title>Theorie</title>
 </head>
 <body>
-<nav>
-        <ul>
-            <li><a href="index.php">Home</a></li>
-            <?php if (isset($_SESSION['ingelogd']) && $_SESSION['ingelogd'] === true): ?>
-                <li><a href="login/account.php">Account</a></li>
-                <li><a href="login/uitloggen.php">Uitloggen</a></li>
-                
-                <?php elseif (isset($_SESSION['admin_ingelogd']) && $_SESSION['admin_ingelogd'] === true): ?>
-                <li><a href="login/admin/admin_account.php">Admin Account</a></li>
-                <li><a href="login/uitloggen.php">Uitloggen</a></li>
 
-            <?php else: ?>
-                <li><a href="login/login.php">Inloggen</a></li>
-            <?php endif; ?>
-        </ul>
-    </nav>

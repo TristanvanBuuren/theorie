@@ -4,7 +4,9 @@
 ?>
 
 <div class="blauwe-balkh"></div>
+
 <div class="blauwe-balkl"></div>
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 offset-md-2">
@@ -19,9 +21,9 @@
                 Rotterdam
             </div>
             <div class="antwoord-box" onclick="selectAntwoord(this)">
-                Den Haag
+                Deddn Haag
             </div>
-            <button class="verder-knop" onclick="verderGaan()">Verder</button>
+            <button class="verder-knop" onclick="verderGaan()">Verder ></button>
         </div>
         </div>
     </div>
@@ -40,7 +42,7 @@
     function verderGaan() {
         var geselecteerdeAntwoord = document.querySelector('.antwoord-box.selected').innerText;
         alert("Geselecteerd antwoord: " + geselecteerdeAntwoord);
-        window.location.href = "volgende.php";
+        window.location.href = "vragen.php";
     }
 </script>
 
