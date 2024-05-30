@@ -7,7 +7,7 @@
   align-content: flex-start;
 }
 
-#logo {
+.logo {
   width: 10%;
   height: auto;
   margin-right: 8%;
@@ -33,21 +33,21 @@
 }
 
 .category {
-    width: 18%;
-    padding: 10px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 3vw;
-    border: 1px solid black;
-    margin: 2%;
-    flex-wrap: wrap;
-    word-wrap: break-word;
-    text-align: center;
+  width: 18%;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 3vw;
+  border: 1px solid black;
+  margin: 2%;
+  flex-wrap: wrap;
+  word-wrap: break-word;
+  text-align: center;
 
-    color: red;
+  color: red;
 }
 
 #choose {
@@ -58,11 +58,11 @@
 }
 
 #category-B {
-    color: black;
+  color: black;
 }
-#category-T {
+/* #category-T {
     color: black;
-}
+} */
 
 /* QUESTIONS */
 
@@ -81,7 +81,7 @@
 /* RESPONSIVENESS */
 
 @media (max-width: 1200px) {
-  #logo {
+  .logo {
     width: 8%;
     margin-right: 4%;
   }
@@ -103,7 +103,7 @@
 }
 
 @media (max-width: 992px) {
-  #logo {
+  .logo {
     width: 6%;
     margin-right: 3%;
   }
@@ -134,7 +134,7 @@
     align-items: center;
   }
 
-  #logo {
+  .logo {
     margin-right: 0;
     margin-bottom: 5%;
   }
@@ -180,5 +180,14 @@
   #choose {
     font-size: 3.5vw;
   }
+}
+
+.blauwe-balk {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px; /* Breedte van de balk */
+  height: 100%; /* Volledige hoogte van de viewport */
+  background-color: blue; /* Kleur van de balk */
 }
 
