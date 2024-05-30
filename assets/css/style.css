@@ -33,21 +33,21 @@
 }
 
 .category {
-    width: 18%;
-    padding: 10px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 3vw;
-    border: 1px solid black;
-    margin: 2%;
-    flex-wrap: wrap;
-    word-wrap: break-word;
-    text-align: center;
+  width: 18%;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 3vw;
+  border: 1px solid black;
+  margin: 2%;
+  flex-wrap: wrap;
+  word-wrap: break-word;
+  text-align: center;
 
-    color: red;
+  color: red;
 }
 
 #choose {
@@ -58,7 +58,7 @@
 }
 
 #category-B {
-    color: black;
+  color: black;
 }
 /* #category-T {
     color: black;
