@@ -269,6 +269,15 @@
   color:black
 }
 
+.foto {
+  position: absolute;
+  
+  max-height: 10px; /* Pas deze waarde aan naar wens */
+  max-width: 40%; /* Pas deze waarde aan naar wens */
+  margin-top: 10%;
+  margin-left: -10%;
+}
+/* 
 .move-up {
   margin-top: -500px; /* or any other style to move the image up */
-}
+/* }  */
