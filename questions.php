@@ -16,30 +16,14 @@ if ($sqli_prepare === false) {
     $sqli_prepare->store_result();
     $sqli_prepare->bind_result($vragen_id, $vragen_category_id, $type, $image, $question, $feedback, $option_1, $option_2, $option_3);
     while ($sqli_prepare->fetch()) { // WHILE START
+      
+      $ids[] = $vragen_id;
+      
       ?>
-      <div class='product'>
-        <a href='productpage.php?id=<?= $producten_id . "&cat=" . $category_id ?>'>
-        </a>
-        <span class='product-text'>
-          <a class='td-none' href='productpage.php?id=<?= $producten_id . "&cat=" . $category_id ?>'>
-            <?= $producten_naam ?>
-          </a>
-        </span>
-        <div class='cart-button' onclick='ManageStorage("<?= $producten_msName ?>")'>
-          <img class='cart-img' alt='cart' width='40' height='40' src='./assets/img/cart.png' />
-        </div>
-        <!-- <button type="sumbit" class='cart-button'>
-          <img class='cart-img' alt='cart' width='40' height='40' src='./assets/img/cart.png' />
-        </> -->
-        <span class='beschrijving'>
-          <?= $producten_tekst ?>
-        </span>
-        <span class='prijs'>
-          € <?= $producten_prijs ?>
-        </span>
-      </div>
+        
       <?php
     }
+    print_r($ids);
   }
 }
 $sqli_prepare->close();
