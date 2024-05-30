@@ -182,3 +182,11 @@
   }
 }
 
+.blauwe-balk {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px; /* Breedte van de balk */
+  height: 100%; /* Volledige hoogte van de viewport */
+  background-color: blue; /* Kleur van de balk */
+}
