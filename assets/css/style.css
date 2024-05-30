@@ -7,7 +7,7 @@
   align-content: flex-start;
 }
 
-#logo {
+.logo {
   width: 10%;
   height: auto;
   margin-right: 8%;
