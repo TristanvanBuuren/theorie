@@ -9,7 +9,8 @@
 <?php
 $cat1 = $_GET['cat'];
 
-$sqli_prepare = $con->prepare("SELECT vragen_id, vragen_category_id, type, image, question, feedback, option_1, option_2, option_3 FROM vragen WHERE vragen_category_id = $cat1;");
+if($_GET['id'] == null){
+    $sqli_prepare = $con->prepare("SELECT vragen_id, vragen_category_id, type, image, question, feedback, option_1, option_2, option_3 FROM vragen WHERE vragen_category_id = $cat1;");
 if ($sqli_prepare === false) {
   echo mysqli_error($con);
 } else {
@@ -28,7 +29,9 @@ if ($sqli_prepare === false) {
   }
 }
 $sqli_prepare->close();
-?>
+}
+
+elseif($_GET['id'] != null){?>
 <div class="container">
     <div class="row">
         <div class="col-md-8 offset-md-2">
@@ -50,6 +53,9 @@ $sqli_prepare->close();
         </div>
     </div>
 </div>
+<?php
+}
+?>
 <script>
     function selectAntwoord(element) {
         // Verwijder eerst 'selected' klasse van alle antwoordboxen
