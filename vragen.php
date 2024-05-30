@@ -3,8 +3,8 @@ include('core/header2.php');
 ?>
 
 <div class="blauwe-balkh"></div>
-
 <div class="blauwe-balkf"></div>
+
 <?php
 $cat1 = $_GET['cat'];
 $vragen_id = isset($_GET['id']) ? $_GET['id'] : null;
@@ -20,7 +20,7 @@ if ($vragen_id === null) {
             $sqli_prepare->bind_result($vragen_id, $vragen_category_id, $type, $image, $question, $feedback, $option_1, $option_2, $option_3);
             while ($sqli_prepare->fetch()) {
                 $ids[] = $vragen_id;
-                // Andere code...
+              
             }
             print_r($ids);
         }
@@ -38,7 +38,9 @@ if ($vragen_id === null) {
             ?>
             <div class="container">
                 <div class="row">
+               
                     <div class="col-md-8 offset-md-2">
+                        
                         <div class="vraag-balk">
                             <p><?= $question ?></p>
                         </div>
@@ -55,8 +57,14 @@ if ($vragen_id === null) {
                         <?php endif; ?>
                         <button class="verder-knop" onclick="verderGaan()">Verder ></button>
                     </div>
+                    <div class="foto">
+                        <?php if (!empty($image)): ?>
+                            <img src="assets/img/<?= $image ?>" alt="Vraag Afbeelding" class="img-fluid mx-auto d-block vraag-afbeelding">
+                        <?php endif; ?>
+                    </div>
                 </div>
             </div>
+            
             <?php
         }
     }
@@ -75,9 +83,24 @@ if ($vragen_id === null) {
     }
 
     function verderGaan() {
-        var geselecteerdeAntwoord = document.querySelector('.antwoord-box.selected').innerText;
-        alert("Geselecteerd antwoord: " + geselecteerdeAntwoord);
-        window.location.href = "vragen.php";
+        var geselecteerdeAntwoord = document.querySelector('.antwoord-box.selected');
+        if (geselecteerdeAntwoord) {
+            // Haal de huidige categorie en vragen_id op uit de URL
+            var urlParams = new URLSearchParams(window.location.search);
+            var cat = urlParams.get('cat');
+            var id = urlParams.get('id');
+
+            // Verhoog de vragen_id met 1
+            var nieuweId = parseInt(id) + 1;
+
+            // Bouw de nieuwe URL op met de nieuwe vragen_id
+            var nieuweUrl = 'vragen.php?cat=' + cat + '&id=' + nieuweId;
+
+            // Navigeer naar de nieuwe URL
+            window.location.href = nieuweUrl;
+        } else {
+            alert("Kies eerst een antwoord voordat je verder gaat");
+        }
     }
 </script>
 
