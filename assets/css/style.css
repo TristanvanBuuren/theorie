@@ -184,8 +184,8 @@
 
 .blauwe-balkh {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0%;
+  left: 0%;
   width: 100%; /* Breedte van de balk */
   height: 8%; /* Volledige hoogte van de viewport */
   background-color: rgb(3, 99, 150); /* Kleur van de balk */
@@ -194,7 +194,7 @@
 .blauwe-balkf {
   position: absolute;
   top: 92%;
-  left: 0;
+  left: 0%;
   width: 100%; /* Breedte van de balk */
   height: 8%; /* Volledige hoogte van de viewport */
   background-color: rgb(3, 99, 150); /* Kleur van de balk */
@@ -237,4 +237,12 @@
   height: 8%;
   width: 16%;
   font-size: 150%;
+}
+.foto {
+  position: absolute;
+  
+  max-height: 10px; /* Pas deze waarde aan naar wens */
+  max-width: 40%; /* Pas deze waarde aan naar wens */
+  margin-top: 10%;
+  margin-left: -10%;
 }
