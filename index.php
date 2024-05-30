@@ -8,18 +8,27 @@ include ("core/header.php");
     <div id="choose">Kies een categorie</div>
     <div class="content">
         <?php
-        include ("core/view.php");
-        foreach ($array["category"] as $category) {
-            ?>
-            <a class="category td-none" id="category-<?= $category["category"];?>" href="questions.php?cat=<?= $category["category"] ?>">
-                <div><?= $category["category"];?></div>
-                <div class="cat-title"><?= $category["chapter"];?></div>
-            </a>
-            <?php
+
+        $sqli_prepare = $con->prepare("SELECT category_id, category_letter, chapter FROM category");
+        if ($sqli_prepare === false) {
+            echo mysqli_error($con);
+        } else {
+            if ($sqli_prepare->execute()) {
+                $sqli_prepare->store_result();
+                $sqli_prepare->bind_result($category_id, $category_letter, $chapter);
+                while ($sqli_prepare->fetch()) { // WHILE START
+                    ?>
+                    <a class="category td-none" id="category-<?= $category_letter ?>" href="questions.php?cat=<?= $category_id ?>">
+                        <div><?= $category_letter; ?></div>
+                        <div class="cat-title"><?= $chapter; ?></div>
+                    </a>
+                    <?php
+                }
+            }
         }
+        $sqli_prepare->close();
         ?>
     </div>
-
 </main>
 <?php
 include ("core/footer.php");
