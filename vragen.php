@@ -1,59 +1,66 @@
-
 <?php
-  include('core/header2.php');
+include('core/header2.php');
 ?>
 
 <div class="blauwe-balkh"></div>
 
-<div class="blauwe-balkl"></div>
+<div class="blauwe-balkf"></div>
 <?php
 $cat1 = $_GET['cat'];
+$vragen_id = isset($_GET['id']) ? $_GET['id'] : null;
 
-if($_GET['id'] == null){
+if ($vragen_id === null) {
+    // Haal alle vragen op voor de gegeven categorie
     $sqli_prepare = $con->prepare("SELECT vragen_id, vragen_category_id, type, image, question, feedback, option_1, option_2, option_3 FROM vragen WHERE vragen_category_id = $cat1;");
-if ($sqli_prepare === false) {
-  echo mysqli_error($con);
-} else {
-  if ($sqli_prepare->execute()) {
-    $sqli_prepare->store_result();
-    $sqli_prepare->bind_result($vragen_id, $vragen_category_id, $type, $image, $question, $feedback, $option_1, $option_2, $option_3);
-    while ($sqli_prepare->fetch()) { // WHILE START
-      
-      $ids[] = $vragen_id;
-      
-      ?>
-        
-      <?php
+    if ($sqli_prepare === false) {
+        echo mysqli_error($con);
+    } else {
+        if ($sqli_prepare->execute()) {
+            $sqli_prepare->store_result();
+            $sqli_prepare->bind_result($vragen_id, $vragen_category_id, $type, $image, $question, $feedback, $option_1, $option_2, $option_3);
+            while ($sqli_prepare->fetch()) {
+                $ids[] = $vragen_id;
+                // Andere code...
+            }
+            print_r($ids);
+        }
     }
-    print_r($ids);
-  }
-}
-$sqli_prepare->close();
-}
-
-elseif($_GET['id'] != null){?>
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 offset-md-2">
-            <div class="vraag-balk">
-                
-                <p>Wat is de hoofdstad van Nederland?</p>
+    $sqli_prepare->close();
+} else {
+    // Haal de specifieke vraag op op basis van vragen_id
+    $sqli_prepare = $con->prepare("SELECT vragen_id, vragen_category_id, type, image, question, feedback, option_1, option_2, option_3 FROM vragen WHERE vragen_id = ?;");
+    $sqli_prepare->bind_param("i", $vragen_id);
+    if ($sqli_prepare->execute()) {
+        $sqli_prepare->store_result();
+        $sqli_prepare->bind_result($vragen_id, $vragen_category_id, $type, $image, $question, $feedback, $option_1, $option_2, $option_3);
+        if ($sqli_prepare->fetch()) {
+            // Hier kun je de opgehaalde gegevens van de specifieke vraag verwerken
+            ?>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2">
+                        <div class="vraag-balk">
+                            <p><?= $question ?></p>
+                        </div>
+                        <div class="antwoord-box" onclick="selectAntwoord(this)">
+                            <?= $option_1 ?>
+                        </div>
+                        <div class="antwoord-box" onclick="selectAntwoord(this)">
+                            <?= $option_2 ?>
+                        </div>
+                        <?php if ($type == 1): ?>
+                            <div class="antwoord-box" onclick="selectAntwoord(this)">
+                                <?= $option_3 ?>
+                            </div>
+                        <?php endif; ?>
+                        <button class="verder-knop" onclick="verderGaan()">Verder ></button>
+                    </div>
+                </div>
             </div>
-            <div class="antwoord-box" onclick="selectAntwoord(this)">
-                Amsterdam
-            </div>
-            <div class="antwoord-box" onclick="selectAntwoord(this)">
-                Rotterdam
-            </div>
-            <div class="antwoord-box" onclick="selectAntwoord(this)">
-                Deddn Haag
-            </div>
-            <button class="verder-knop" onclick="verderGaan()">Verder ></button>
-        </div>
-        </div>
-    </div>
-</div>
-<?php
+            <?php
+        }
+    }
+    $sqli_prepare->close();
 }
 ?>
 <script>
@@ -75,5 +82,5 @@ elseif($_GET['id'] != null){?>
 </script>
 
 <?php
-  include('core/footer.php');
+include('core/footer.php');
 ?>

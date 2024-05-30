@@ -191,7 +191,7 @@
   background-color: rgb(3, 99, 150); /* Kleur van de balk */
 }
 
-.blauwe-balkl {
+.blauwe-balkf {
   position: absolute;
   top: 92%;
   left: 0;
@@ -207,9 +207,9 @@
 
   font-size: 200%;
   margin-left: 50%;
-  width: 80%;
+  width: 90%;
   margin-bottom: 5%; /* Ruimte onder de balk */
-  margin-top: 20%; /* Ruimte onder de balk */
+  margin-top: 15%; /* Ruimte onder de balk */
 }
 .antwoord-box {
   border: 1px solid #ced4da; /* Rand rond de antwoordbox */
