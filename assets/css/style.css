@@ -182,11 +182,55 @@
   }
 }
 
-.blauwe-balk {
+.blauwe-balkh {
   position: absolute;
   top: 0;
   left: 0;
-  width: 50px; /* Breedte van de balk */
-  height: 100%; /* Volledige hoogte van de viewport */
-  background-color: blue; /* Kleur van de balk */
+  width: 100%; /* Breedte van de balk */
+  height: 8%; /* Volledige hoogte van de viewport */
+  background-color: rgb(3, 99, 150); /* Kleur van de balk */
+}
+
+.blauwe-balkl {
+  position: absolute;
+  top: 92%;
+  left: 0;
+  width: 100%; /* Breedte van de balk */
+  height: 8%; /* Volledige hoogte van de viewport */
+  background-color: rgb(3, 99, 150); /* Kleur van de balk */
+}
+
+.vraag-balk {
+  background-color: #f8f9fa; /* Grijze achtergrondkleur */
+  padding: 1%; /* Ruimte binnen de balk */
+  border-radius: 1%; /* Afgeronde hoeken */
+
+  font-size: 200%;
+  margin-left: 50%;
+  width: 80%;
+  margin-bottom: 5%; /* Ruimte onder de balk */
+}
+.antwoord-box {
+  border: 1px solid #ced4da; /* Rand rond de antwoordbox */
+  border-radius: 5px; /* Afgeronde hoeken */
+  padding: 10px; /* Ruimte binnen de antwoordbox */
+  margin-bottom: 1%; /* Ruimte onder elke antwoordbox */
+  cursor: pointer; /* Cursor verandert in een handje bij hover */
+  margin-left: 50%;
+  width: 80%;
+}
+.antwoord-box.selected {
+  background-color: #2f8bed; /* Achtergrondkleur van de geselecteerde antwoordbox */
+  color: #fff; /* Tekstkleur van de geselecteerde antwoordbox */
+}
+.verder-knop {
+  background-color: rgb(70, 140, 180);
+  color: #fff;
+  border: 1px solid rgb(70, 140, 180);
+  padding: 10px 20px;
+
+  cursor: pointer;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
 }
