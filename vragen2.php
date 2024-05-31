@@ -34,7 +34,7 @@ if ($vragen_id === null) {
             <main>
                 <div class="blauwe-balk-h"></div>
                 <div class="content-container">
-                    <div class="image"><img src="assets/img/<?= $image ?>" alt="Vraag Afbeelding" class="img-fluid mx-auto d-block vraag-afbeelding"></div>
+                    <div class="image"><img src="assets/img/<?= $image ?>" alt="Vraag Afbeelding" class="img-fluid mx-auto d-block vraag-afbeelding2"></div>
                     <div class="vraag-box">
                         <div class="vraag-balk2"><?= $question ?></div>
                         <div class="antwoord-box2" onclick="selectAntwoord(this)"><?= $option_1 ?></div>
