@@ -6,6 +6,14 @@ if (!$con) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
+if (isset($_SESSION['admin_ingelogd']) && $_SESSION['admin_ingelogd']) {
+    
+} else {
+    // Redirect naar uitloggen.php
+    header("Location: ../../login/uitloggen.php");
+    exit();
+}
+
 // Variabelen voor de ingevoerde waarden
 $vragen_id = '';
 $vragen_category_id = '';
@@ -122,10 +130,10 @@ if (isset($_POST['submit'])) {
             die("Error preparing statement: " . $con->error);
         }
 
-        $insertqry->bind_param('iiisssss', $new_vragen_id, $vragen_category_id, $type, $image, $question, $feedback, $option_1, $option_2, $option_3);
+        $insertqry->bind_param('iiissssss', $new_vragen_id, $vragen_category_id, $type, $image, $question, $feedback, $option_1, $option_2, $option_3);
 
         if ($insertqry->execute()) {
-            $redirectUrl = BASEURL . "admin/vragen/";
+            $redirectUrl = BASEURL . "login/admin/admin_account.php";
             header("Location: " . $redirectUrl);
             exit();
         } else {
