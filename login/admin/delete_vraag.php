@@ -1,7 +1,15 @@
 <?php
 include('core/header.php');
 ?>
-
+    <?php
+if (isset($_SESSION['admin_ingelogd']) && $_SESSION['admin_ingelogd']) {
+    
+} else {
+    // Redirect naar uitloggen.php
+    header("Location: ../../login/uitloggen.php");
+    exit();
+}
+?>
 <head>
     <title>Vragen</title>
     <link rel="stylesheet" href="../assets/css/style.css">
@@ -79,7 +87,7 @@ include('core/header.php');
         $deleteqry->bind_param('i', $vragen_id);
 
         if ($deleteqry->execute()) {
-            $redirectUrl = BASEURL . "admin/vragen/";
+            $redirectUrl = BASEURL . "login/admin/admin_account.php";
             header("Location: " . $redirectUrl);
             exit();
         } else {
