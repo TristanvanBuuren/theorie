@@ -4,7 +4,7 @@ include ("core/header.php");
 
 
 ?>
-    <?php
+   <?php
 if (isset($_SESSION['ingelogd']) && $_SESSION['ingelogd'] || isset($_SESSION['admin_ingelogd']) && $_SESSION['admin_ingelogd']) {
     
 } else {
@@ -12,7 +12,7 @@ if (isset($_SESSION['ingelogd']) && $_SESSION['ingelogd'] || isset($_SESSION['ad
     header("Location: login/login.php");
     exit();
 }
-?>
+ ?>
 <main>
     <div id="choose">Kies een categorie</div>
     <div class="content">

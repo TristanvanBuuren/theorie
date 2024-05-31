@@ -8,6 +8,7 @@ include('core/header2.php');
 <?php
 $cat1 = $_GET['cat'];
 $vragen_id = isset($_GET['id']) ? $_GET['id'] : null;
+$ids = [];
 
 if ($vragen_id === null) {
     // Haal alle vragen op voor de gegeven categorie
@@ -57,6 +58,7 @@ if ($vragen_id === null) {
                         <?php endif; ?>
                         <a href="<?php if($vragen_id == 1){echo('index.php');} elseif($vragen_id >= 2 && $vragen_id <= 20){echo('vragen.php?id=' . $vragen_id - 1);}?>"><button class="terug-knop">< Terug</button></a>
                         <button class="verder-knop" onclick="verderGaan()">Verder ></button>
+                     
                     </div>
                     <div class="foto">
                         <?php if (!empty($image)): ?>
