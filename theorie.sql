@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 30, 2024 at 10:32 AM
+-- Generation Time: May 31, 2024 at 12:01 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -39,7 +39,20 @@ CREATE TABLE `admin_login` (
 
 INSERT INTO `admin_login` (`id`, `username`, `admin_password`) VALUES
 (1, 'Jesse', 'admin'),
-(2, 'Tristan', 'admin');
+(2, 'Tristan', 'admin'),
+(3, 'Guest_User', 'Guest_Password');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `antwoorden`
+--
+
+CREATE TABLE `antwoorden` (
+  `user_id` int(11) NOT NULL,
+  `vragen_id` int(11) NOT NULL,
+  `selected` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -169,6 +182,13 @@ ALTER TABLE `admin_login`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `antwoorden`
+--
+ALTER TABLE `antwoorden`
+  ADD KEY `antwoorden_user_admin_id_link` (`user_id`),
+  ADD KEY `antwoorden_vragen_id_link` (`vragen_id`);
+
+--
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
@@ -184,7 +204,8 @@ ALTER TABLE `login`
 -- Indexes for table `vragen`
 --
 ALTER TABLE `vragen`
-  ADD PRIMARY KEY (`vragen_id`);
+  ADD PRIMARY KEY (`vragen_id`),
+  ADD KEY `category_id_link` (`vragen_category_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -194,7 +215,7 @@ ALTER TABLE `vragen`
 -- AUTO_INCREMENT for table `admin_login`
 --
 ALTER TABLE `admin_login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -213,6 +234,24 @@ ALTER TABLE `login`
 --
 ALTER TABLE `vragen`
   MODIFY `vragen_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=647;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `antwoorden`
+--
+ALTER TABLE `antwoorden`
+  ADD CONSTRAINT `antwoorden_user_admin_id_link` FOREIGN KEY (`user_id`) REFERENCES `admin_login` (`id`),
+  ADD CONSTRAINT `antwoorden_user_id_link` FOREIGN KEY (`user_id`) REFERENCES `login` (`id`),
+  ADD CONSTRAINT `antwoorden_vragen_id_link` FOREIGN KEY (`vragen_id`) REFERENCES `vragen` (`vragen_id`);
+
+--
+-- Constraints for table `vragen`
+--
+ALTER TABLE `vragen`
+  ADD CONSTRAINT `category_id_link` FOREIGN KEY (`vragen_category_id`) REFERENCES `category` (`category_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
