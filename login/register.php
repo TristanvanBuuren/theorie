@@ -42,7 +42,8 @@ if (empty($usernameErr) && empty($passwordErr)) {
         if ($stmt->execute()) {
             echo "Nieuwe gebruiker is succesvol geregistreerd.";
             $_SESSION['ingelogd'] = true;
-            $_SESSION['username'] = $username; // Sla de gebruikersnaam op in de sessie
+            $_SESSION['username'] = $username;
+            $_SESSION['user_id'] = $row['id']; // Sla het id van de gebruiker op in een sessievariabele
             $redirectUrl = BASEURL . "index.php";
             header("Location: " . $redirectUrl);
             exit();

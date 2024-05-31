@@ -72,6 +72,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Verifieer het wachtwoord
         if ($admin_password == $row["admin_password"]) {
             $_SESSION['admin_ingelogd'] = true;
+            $_SESSION['username'] = $username;
+            $_SESSION['user_id'] = $row['id']; // Sla het id van de gebruiker op in een sessievariabele
             $redirectUrl = "admin/admin_account.php";
             header("Location: " . $redirectUrl);
             exit();
