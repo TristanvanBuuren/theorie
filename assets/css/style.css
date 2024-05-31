@@ -317,6 +317,8 @@
   margin-top: -500px; /* or any other style to move the image up */
 /* }  */
 
+/* MARK: Nieuwe style vvv
+*/
 .blauwe-balk-h {
   width: 100vw;
   height: 8vh;
@@ -336,13 +338,13 @@
 .image {
   width: 40vw;
 
-  background-color: crimson;
+  /* background-color: crimson; */
 }
 
 .vraag-box {
   width: 60vw;
 
-  background-color: darkgoldenrod;
+  /* background-color: darkgoldenrod; */
 }
 
 .vraag-balk2 {
@@ -360,7 +362,7 @@
   margin-top: 1vh;
 
   height: 20vh;
-  background-color: darkolivegreen;
+  /* background-color: darkolivegreen; */
 
   border: 1px solid #ced4da;
   border-radius: 5px;

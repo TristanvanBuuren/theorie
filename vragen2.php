@@ -32,15 +32,15 @@ if ($vragen_id === null) {
             // Hier kun je de opgehaalde gegevens van de specifieke vraag verwerken
             ?>
             <main>
-                <div class="blauwe-balk-h">aaa</div>
+                <div class="blauwe-balk-h"></div>
                 <div class="content-container">
-                    <div class="image"></div>
+                    <div class="image"><img src="assets/img/<?= $image ?>" alt="Vraag Afbeelding" class="img-fluid mx-auto d-block vraag-afbeelding"></div>
                     <div class="vraag-box">
                         <div class="vraag-balk2"><?= $question ?></div>
-                        <div class="antwoord-box2"><?= $option_1 ?></div>
-                        <div class="antwoord-box2"><?= $option_2 ?></div>
+                        <div class="antwoord-box2" onclick="selectAntwoord(this)"><?= $option_1 ?></div>
+                        <div class="antwoord-box2" onclick="selectAntwoord(this)"><?= $option_2 ?></div>
                         <?php if($type == 1){?>
-                        <div class="antwoord-box2"><?= $option_3 ?></div>
+                        <div class="antwoord-box2" onclick="selectAntwoord(this)"><?= $option_3 ?></div>
                         <?php } ?>
                     </div>
                 </div>
@@ -59,47 +59,36 @@ if ($vragen_id === null) {
 ?>
 </main>
 <script>
-    // document.addEventListener("DOMContentLoaded", function() {
-    //     var img = document.getElementById('vraag-afbeelding');
-    //     img.onload = function() {
-    //         var height = img.naturalHeight;
-    //         if (height > 400) {  // Example height condition
-    //             img.classList.add('move-up');
-    //             console.log("added move-up class")
-    //         }
-    //     };
-    // });
+    function selectAntwoord(element) {
+        // Verwijder eerst 'selected' klasse van alle antwoordboxen
+        var antwoordBoxen = document.querySelectorAll('.antwoord-box2');
+        antwoordBoxen.forEach(function(box) {
+            box.classList.remove('selected');
+        });
+        // Voeg 'selected' klasse toe aan de geselecteerde antwoordbox
+        element.classList.add('selected');
+    }
 
-    // function selectAntwoord(element) {
-    //     // Verwijder eerst 'selected' klasse van alle antwoordboxen
-    //     var antwoordBoxen = document.querySelectorAll('.antwoord-box');
-    //     antwoordBoxen.forEach(function(box) {
-    //         box.classList.remove('selected');
-    //     });
-    //     // Voeg 'selected' klasse toe aan de geselecteerde antwoordbox
-    //     element.classList.add('selected');
-    // }
+    function verderGaan() {
+        var geselecteerdeAntwoord = document.querySelector('.antwoord-box2.selected');
+        if (geselecteerdeAntwoord) {
+            // Haal de huidige categorie en vragen_id op uit de URL
+            var urlParams = new URLSearchParams(window.location.search);
+            var cat = urlParams.get('cat');
+            var id = urlParams.get('id');
 
-    // function verderGaan() {
-    //     var geselecteerdeAntwoord = document.querySelector('.antwoord-box.selected');
-    //     if (geselecteerdeAntwoord) {
-    //         // Haal de huidige categorie en vragen_id op uit de URL
-    //         var urlParams = new URLSearchParams(window.location.search);
-    //         var cat = urlParams.get('cat');
-    //         var id = urlParams.get('id');
+            // Verhoog de vragen_id met 1
+            var nieuweId = parseInt(id) + 1;
 
-    //         // Verhoog de vragen_id met 1
-    //         var nieuweId = parseInt(id) + 1;
+            // Bouw de nieuwe URL op met de nieuwe vragen_id
+            var nieuweUrl = 'vragen.php?cat=' + cat + '&id=' + nieuweId;
 
-    //         // Bouw de nieuwe URL op met de nieuwe vragen_id
-    //         var nieuweUrl = 'vragen.php?cat=' + cat + '&id=' + nieuweId;
-
-    //         // Navigeer naar de nieuwe URL
-    //         window.location.href = nieuweUrl;
-    //     } else {
-    //         alert("Kies eerst een antwoord voordat je verder gaat");
-    //     }
-    // }
+            // Navigeer naar de nieuwe URL
+            window.location.href = nieuweUrl;
+        } else {
+            alert("Kies eerst een antwoord voordat je verder gaat");
+        }
+    }
 </script>
 
 <?php
