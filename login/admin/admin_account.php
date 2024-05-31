@@ -3,11 +3,9 @@
     include('core/header.php');
 ?>
 
-<head>
-    <title>Admin Panel</title>
-    <link rel="stylesheet" href="../../assets/css/style.css">
-</head>
-<body>
+
+   
+
     <div class="header">
     <?php
 if (isset($_SESSION['admin_ingelogd']) && $_SESSION['admin_ingelogd']) {

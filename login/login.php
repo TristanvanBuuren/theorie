@@ -74,6 +74,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($password, $row["password"])) {
             // Gebruiker is geldig, start de sessie en stuur door naar blogs
             $_SESSION['ingelogd'] = true;
+            $_SESSION['username'] = $username;
+           $_SESSION['user_id'] = $row['id']; // Sla het id van de gebruiker op in een sessievariabele
             $redirectUrl = BASEURL . "index.php";
             header("Location: " . $redirectUrl);
             $_SESSION['username'] = $username;
