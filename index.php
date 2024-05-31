@@ -27,7 +27,7 @@ if (isset($_SESSION['ingelogd']) && $_SESSION['ingelogd'] || isset($_SESSION['ad
                 $sqli_prepare->bind_result($category_id, $category_letter, $chapter);
                 while ($sqli_prepare->fetch()) { // WHILE START
                     ?>
-                    <a class="category td-none" id="category-<?= $category_letter ?>" href="startpagina.php?cat=<?= $category_id ?>&id=1">
+                    <a class="category td-none" id="category-<?= $category_letter ?>" href="questions.php?cat=<?= $category_id ?>&id=1">
                         <div><?= $category_letter; ?></div>
                         <div class="cat-title"><?= $chapter; ?></div>
                     </a>

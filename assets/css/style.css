@@ -269,10 +269,13 @@
   color:black
 }
 
-.foto {
+.vraag-afbeelding {
   position: absolute;
+
+  top: 2%;
+  left: 2%;
   
-  max-height: 10px; /* Pas deze waarde aan naar wens */
+  max-height: 280px; /* Pas deze waarde aan naar wens */
   max-width: 40%; /* Pas deze waarde aan naar wens */
   margin-top: 10%;
   margin-left: -10%;

@@ -55,7 +55,7 @@ if ($vragen_id === null) {
                                 <?= $option_3 ?>
                             </div>
                         <?php endif; ?>
-                        <a href="<?php if($vragen_id == 1){echo('index.php');} elseif($vragen_id >= 2 && $vragen_id <= 20){echo('vragen.php?id=' . $vragen_id - 1);}?>"><button class="terug-knop" onclick="verderGaan()">< Terug</button></a>
+                        <a href="<?php if($vragen_id == 1){echo('index.php');} elseif($vragen_id >= 2 && $vragen_id <= 20){echo('vragen.php?id=' . $vragen_id - 1);}?>"><button class="terug-knop">< Terug</button></a>
                         <button class="verder-knop" onclick="verderGaan()">Verder ></button>
                     </div>
                     <div class="foto">
