@@ -1,14 +1,8 @@
 <?php
-include('core/header2.php');
-?>
+include ('core/header2.php');
 
-<div class="blauwe-balkh"></div>
-<div class="blauwe-balkf"></div>
-
-<?php
 $cat1 = $_GET['cat'];
 $vragen_id = isset($_GET['id']) ? $_GET['id'] : null;
-$ids = [];
 
 if ($vragen_id === null) {
     // Haal alle vragen op voor de gegeven categorie
@@ -21,7 +15,7 @@ if ($vragen_id === null) {
             $sqli_prepare->bind_result($vragen_id, $vragen_category_id, $type, $image, $question, $feedback, $option_1, $option_2, $option_3);
             while ($sqli_prepare->fetch()) {
                 $ids[] = $vragen_id;
-              
+
             }
             print_r($ids);
         }
@@ -37,58 +31,37 @@ if ($vragen_id === null) {
         if ($sqli_prepare->fetch()) {
             // Hier kun je de opgehaalde gegevens van de specifieke vraag verwerken
             ?>
-            <div class="container">
-                <div class="row">
-               
-                    <div class="col-md-8 offset-md-2">
-                        
-                        <div class="vraag-balk">
-                            <p><?= $question ?></p>
-                        </div>
-                        <div class="antwoord-box" onclick="selectAntwoord(this)">
-                            <?= $option_1 ?>
-                        </div>
-                        <div class="antwoord-box" onclick="selectAntwoord(this)">
-                            <?= $option_2 ?>
-                        </div>
-                        <?php if ($type == 1): ?>
-                            <div class="antwoord-box" onclick="selectAntwoord(this)">
-                                <?= $option_3 ?>
-                            </div>
-                        <?php endif; ?>
-                        <a href="<?php if($vragen_id == 1){echo('index.php');} elseif($vragen_id >= 2 && $vragen_id <= 20){echo('vragen.php?id=' . $vragen_id - 1);}?>"><button class="terug-knop">< Terug</button></a>
-                        <button class="verder-knop" onclick="verderGaan()">Verder ></button>
-                     
-                    </div>
-                    <div class="foto">
-                        <?php if (!empty($image)): ?>
-                            <img src="assets/img/<?= $image ?>" alt="Vraag Afbeelding" class="img-fluid mx-auto d-block vraag-afbeelding">
-                        <?php endif; ?>
+            <main>
+                <div class="blauwe-balk-h"></div>
+                <div class="content-container">
+                    <div class="image"><img src="assets/img/<?= $image ?>" alt="Vraag Afbeelding" class="img-fluid mx-auto d-block vraag-afbeelding2"></div>
+                    <div class="vraag-box">
+                        <div class="vraag-balk2"><?= $question ?></div>
+                        <div class="antwoord-box2" onclick="selectAntwoord(this)"><?= $option_1 ?></div>
+                        <div class="antwoord-box2" onclick="selectAntwoord(this)"><?= $option_2 ?></div>
+                        <?php if($type == 1){?>
+                        <div class="antwoord-box2" onclick="selectAntwoord(this)"><?= $option_3 ?></div>
+                        <?php } ?>
                     </div>
                 </div>
-            </div>
-            
-            <?php
+                <div class="blauwe-balk-f">
+                        <a href="<?php if($vragen_id == 1){echo('index.php');} elseif($vragen_id >= 2 && $vragen_id <= 20){echo('vragen.php?id=' . $vragen_id - 1);}?>">
+                            <button class="terug-knop2">< Terug</button>
+                        </a>
+                        <div class="spacer"></div>
+                        <button class="verder-knop2" onclick="verderGaan()">Verder ></button>
+                    </div>
+                <?php
         }
     }
     $sqli_prepare->close();
 }
 ?>
+</main>
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    var img = document.getElementById('vraag-afbeelding');
-    img.onload = function() {
-        var height = img.naturalHeight;
-        if (height > 400) {  // Example height condition
-            img.classList.add('move-up');
-            console.log("added move-up class")
-        }
-    };
-});
-
     function selectAntwoord(element) {
         // Verwijder eerst 'selected' klasse van alle antwoordboxen
-        var antwoordBoxen = document.querySelectorAll('.antwoord-box');
+        var antwoordBoxen = document.querySelectorAll('.antwoord-box2');
         antwoordBoxen.forEach(function(box) {
             box.classList.remove('selected');
         });
@@ -97,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function verderGaan() {
-        var geselecteerdeAntwoord = document.querySelector('.antwoord-box.selected');
+        var geselecteerdeAntwoord = document.querySelector('.antwoord-box2.selected');
         if (geselecteerdeAntwoord) {
             // Haal de huidige categorie en vragen_id op uit de URL
             var urlParams = new URLSearchParams(window.location.search);
@@ -119,5 +92,5 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 <?php
-include('core/footer.php');
+include ('core/footer.php');
 ?>
