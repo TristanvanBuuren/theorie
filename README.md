@@ -13,7 +13,8 @@
 
 2. **Database Configureren**
     - Open het bestand **core/db_connect.php** en verander de database-instellingen naar jouw lokale configuratie: **$dbhost**, **$dbuser**, **$dbpass**, **$dbname** en **BASEURL**, **BASEURL_CMS**, **ABSOLUTE_HREF**.
-    - Open het bestand **login\admin\core\header.php** en verander de db_connect naar jouw lokale configuratie.
+    - Open het bestand **theorie\login\core\header.php** en verander de db_connect naar jouw lokale configuratie.
+    - Open andere bestanden en verander de links naar jouw lokale configuratie.
 
 3. **Start Apache en MySQL**
     - Start de **Apache** en **MySQL** services via het **XAMPP Control Panel**.
