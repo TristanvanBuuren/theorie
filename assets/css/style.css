@@ -60,6 +60,7 @@
 #category-B {
   color: black;
 }
+
 /* #category-T {
     color: black;
 } */
@@ -186,44 +187,67 @@
   position: absolute;
   top: 0%;
   left: 0%;
-  width: 100%; /* Breedte van de balk */
-  height: 8%; /* Volledige hoogte van de viewport */
-  background-color: rgb(3, 99, 150); /* Kleur van de balk */
+  width: 100%;
+  /* Breedte van de balk */
+  height: 8%;
+  /* Volledige hoogte van de viewport */
+  background-color: rgb(3, 99, 150);
+  /* Kleur van de balk */
 }
 
 .blauwe-balkf {
   position: absolute;
   top: 92%;
   left: 0%;
-  width: 100%; /* Breedte van de balk */
-  height: 8%; /* Volledige hoogte van de viewport */
-  background-color: rgb(3, 99, 150); /* Kleur van de balk */
+  width: 100%;
+  /* Breedte van de balk */
+  height: 8%;
+  /* Volledige hoogte van de viewport */
+  background-color: rgb(3, 99, 150);
+  /* Kleur van de balk */
 }
 
 .vraag-balk {
-  background-color: #f8f9fa; /* Grijze achtergrondkleur */
-  padding: 1%; /* Ruimte binnen de balk */
-  border-radius: 1%; /* Afgeronde hoeken */
+  background-color: #f8f9fa;
+  /* Grijze achtergrondkleur */
+  padding: 1%;
+  /* Ruimte binnen de balk */
+  border-radius: 1%;
+  /* Afgeronde hoeken */
 
   font-size: 200%;
   margin-left: 50%;
   width: 90%;
-  margin-bottom: 5%; /* Ruimte onder de balk */
-  margin-top: 15%; /* Ruimte onder de balk */
+  margin-bottom: 5%;
+  /* Ruimte onder de balk */
+  margin-top: 15%;
+  /* Ruimte onder de balk */
 }
+
 .antwoord-box {
-  border: 1px solid #ced4da; /* Rand rond de antwoordbox */
-  border-radius: 5px; /* Afgeronde hoeken */
-  padding: 10px; /* Ruimte binnen de antwoordbox */
-  margin-bottom: 1%; /* Ruimte onder elke antwoordbox */
-  cursor: pointer; /* Cursor verandert in een handje bij hover */
+  border: 1px solid #ced4da;
+  /* Rand rond de antwoordbox */
+  border-radius: 5px;
+  /* Afgeronde hoeken */
+  padding: 10px;
+  /* Ruimte binnen de antwoordbox */
+  margin-bottom: 1%;
+  /* Ruimte onder elke antwoordbox */
+  cursor: pointer;
+  /* Cursor verandert in een handje bij hover */
   margin-left: 50%;
   width: 80%;
+
+  cursor: pointer;
 }
+
 .antwoord-box.selected {
-  background-color: #2f8bed; /* Achtergrondkleur van de geselecteerde antwoordbox */
-  color: #fff; /* Tekstkleur van de geselecteerde antwoordbox */
+  background-color: #2f8bed;
+  /* Achtergrondkleur van de geselecteerde antwoordbox */
+  color: #fff;
+  /* Tekstkleur van de geselecteerde antwoordbox */
 }
+
 .verder-knop {
   background-color: rgb(70, 140, 180);
   color: #fff;
@@ -238,6 +262,7 @@
   width: 16%;
   font-size: 150%;
 }
+
 .terug-knop {
   background-color: rgb(70, 140, 180);
   color: #fff;
@@ -258,15 +283,19 @@
   height: 100%;
   position: absolute;
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+  justify-content: center;
+  /* Center horizontally */
+  align-items: center;
+  /* Center vertically */
   color: black;
 }
 
 .zeker-text {
-  text-align: center; /* Optional: center text inside the element */
-  font-size: 2rem; /* Adjust the font size as needed */
-  color:black
+  text-align: center;
+  /* Optional: center text inside the element */
+  font-size: 2rem;
+  /* Adjust the font size as needed */
+  color: black
 }
 
 .vraag-afbeelding {
@@ -274,13 +303,109 @@
 
   top: 2%;
   left: 2%;
-  
-  max-height: 280px; /* Pas deze waarde aan naar wens */
-  max-width: 40%; /* Pas deze waarde aan naar wens */
+
+  max-height: 280px;
+  /* Pas deze waarde aan naar wens */
+  max-width: 40%;
+  /* Pas deze waarde aan naar wens */
   margin-top: 10%;
   margin-left: -10%;
 }
+
 /* 
 .move-up {
   margin-top: -500px; /* or any other style to move the image up */
 /* }  */
+
+.blauwe-balk-h {
+  width: 100vw;
+  height: 8vh;
+
+  background-color: rgb(3, 99, 150);
+}
+
+.content-container {
+  width: 100vw;
+  height: 84vh;
+
+  /* background-color: chocolate; */
+
+  display: flex;
+}
+
+.image {
+  width: 40vw;
+
+  background-color: crimson;
+}
+
+.vraag-box {
+  width: 60vw;
+
+  background-color: darkgoldenrod;
+}
+
+.vraag-balk2 {
+  height: 20vh;
+
+  background-color: #f8f9fa;
+  padding: 1%;
+  border-radius: 1%;
+
+  font-size: 200%;
+  /* width: 90%; */
+}
+
+.antwoord-box2 {
+  margin-top: 1vh;
+
+  height: 20vh;
+  background-color: darkolivegreen;
+
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+
+  padding: 10px;
+}
+
+.antwoord-box2.selected {
+  background-color: #2f8bed;
+  color: #fff;
+}
+
+.blauwe-balk-f {
+  width: 100vw;
+  height: 8vh;
+
+  background-color: rgb(3, 99, 150);
+
+  display: flex;
+}
+
+.terug-knop2 {
+  width: 15vw;
+  height: 8vh;
+
+  background-color: rgb(70, 140, 180);
+  color: #fff;
+  border: 1px solid rgb(70, 140, 180);
+
+  cursor: pointer;
+  font-size: 150%;
+}
+
+.spacer {
+  width: 70vw;
+}
+
+.verder-knop2 {
+  width: 15vw;
+  height: 8vh;
+
+  background-color: rgb(70, 140, 180);
+  color: #fff;
+  border: 1px solid rgb(70, 140, 180);
+
+  cursor: pointer;
+  font-size: 150%;
+}
